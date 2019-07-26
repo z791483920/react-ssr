@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './Home.css';
 
 class Home extends React.Component {
   state = {
