@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import './login.css';
+import './Login.css';
 
 class Login extends React.Component {
     render() {
