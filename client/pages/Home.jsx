@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-import './index.css';
+import './Home.css';
 import { Provider, Consumer } from '../components/Test';
 import Context from '../components/Context';
 import TestReducer from '../components/TestReducer';
