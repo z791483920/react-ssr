@@ -16,7 +16,7 @@ function clientRender() {
     };
 
     render(Entry);
-    if (module.hot) {
+    if (__IS_DEV__ && module.hot) {
         module.hot.accept();
     }
 }
@@ -24,7 +24,7 @@ function clientRender() {
 function serverRender(locals) {
     const { ctx } = locals;
     return () => (
-        <StaticRouter location={ctx.url} context={{}}>
+        <StaticRouter location={ctx.url} sel={{ a: 1, b: 2 }} context={{}}>
             {renderRoutes(routeConfig)}
         </StaticRouter>
     );
