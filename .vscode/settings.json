@@ -1,0 +1,20 @@
+{
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        {
+            "language": "react",
+            "autoFix": true
+        }
+    ],
+    "prettier.singleQuote": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.format.enable": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+}
