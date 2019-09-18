@@ -6,6 +6,7 @@ import staticCache from 'koa-static-cache';
 import compress from 'koa-compress';
 import fs from 'fs';
 import favicon from 'koa-favicon';
+import getModuleFromString from './getModuleFromString';
 import render from './render';
 
 const app = new Koa();
@@ -46,7 +47,10 @@ if (!__DEV__) {
     const webpackServerConfig = require('../webpack/server/webpackProdConfig');
     const renderPath = path.join(webpackServerConfig.output.path, 'index.js');
     const content = fs.readFileSync(renderPath, 'utf-8').toString();
-    const bundle = eval(content).default;
+    // 获取bundle其中的一个方法
+    // const bundle = eval(content).default;
+    // 第二种
+    const bundle = getModuleFromString(content, renderPath);
 
     router.get('/*', async (ctx, next) => {
     // if (ctx.url === '/favicon.ico') {
@@ -63,9 +67,9 @@ if (!__DEV__) {
 
 app.use(compress({ threshold: 2048 }));
 
-// router.get('/*', render);
-
-// app.use(router.routes());
+router.post('/upload', (ctx, next) => {
+    console.log(ctx, 'ctx');
+});
 
 app.on('error', (err) => {
     console.error('server error', err);
