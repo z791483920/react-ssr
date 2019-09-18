@@ -57,16 +57,26 @@ export default {
                             '@babel/preset-env',
                             {
                                 modules: false,
+                                corejs: '3',
                                 useBuiltIns: 'usage',
                                 targets: { browsers: SUPPORT_BROWSERS }
                             }
                         ],
                         '@babel/preset-react'
                     ],
+                    env: {
+                        debug: {
+                            sourceMap: 'inline',
+                            retainLines: true
+                        }
+                    },
                     plugins: [
                         ['import', { libraryName: 'antd', libraryDirectory: 'lib' }, 'ant'],
                         ['@babel/plugin-syntax-dynamic-import'],
-                        ['@babel/plugin-proposal-class-properties'],
+                        ['@babel/plugin-proposal-decorators', { legacy: true }],
+                        ['@babel/plugin-proposal-class-properties', { loose: true }],
+                        ['@babel/plugin-proposal-object-rest-spread'],
+                        ['@babel/plugin-transform-modules-commonjs'],
                         ['add-module-exports']
                     ]
                 }
